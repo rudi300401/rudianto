@@ -3,8 +3,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Dashboard</title>
+  <meta edit="viewport" content="width=device-width, initial-scale=1">
+  <title>Perpustakaan | Dashboard</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -85,6 +85,31 @@
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">@yield('header')</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v1</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+@yield('content')
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
@@ -116,6 +141,63 @@
         </div>
       </div>
 
+      {{--  side bar menu  --}}
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="{{ url ('home') }}" class="nav-link {{ request() -> is ('home') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                Home
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ url ('catalog') }}" class="nav-link {{ request() -> is ('catalog') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Catalog
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ url ('author') }}" class="nav-link {{ request() -> is ('author') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Author
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ url ('book') }}" class="nav-link {{ request() -> is ('book') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Book
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ url ('member') }}" class="nav-link {{ request() -> is ('member') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Member
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ url ('publisher') }}" class="nav-link {{ request() -> is ('publisher') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                publisher
+              </p>
+            </a>
+          <li class="nav-item">
+            <a href="{{ url ('transactions') }}" class="nav-link {{ request() -> is ('transactions') ? 'active' : '' }}">
+              <i class="nav-icon fas fa-edit"></i>
+              <p>
+                Transactions
+              </p>
+            </a>
+
+            {{--  end side bar menu  --}}
+
+
+            
 <!-- jQuery -->
 <script src="{{ asset ('asset/plugins/jquery/jquery.min.js') }}"></script>
 <!-- jQuery UI 1.11.4 -->

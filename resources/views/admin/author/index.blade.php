@@ -4,5 +4,5 @@
 @section('header', 'author')
 
 @section('content')
-ini halaman home
+ini halaman author
 @endsection

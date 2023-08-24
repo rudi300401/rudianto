@@ -14,7 +14,7 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.author.index');
     }
 
     /**
@@ -57,7 +57,7 @@ class AuthorController extends Controller
      */
     public function edit(Author $author)
     {
-        //
+        // 
     }
 
     /**
