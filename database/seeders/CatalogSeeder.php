@@ -19,7 +19,7 @@ class CatalogSeeder extends Seeder
         for ($i = 0; $i < 20; $i++) { 
             $catalog = new Catalog();
 
-            $catalog->nama = $faker->name;
+            $catalog->name = $faker->name;
 
             $catalog->save();
         }

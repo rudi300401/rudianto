@@ -21,7 +21,7 @@ class BookSeeder extends Seeder
 
             $catalog->isbn = $faker->randomNumber(9);
             $catalog->title = $faker->words(rand(5, 15), true);
-            $catalog->nama = $faker->words(rand(5, 15), true);
+            $catalog->name = $faker->words(rand(5, 15), true);
             $catalog->year = rand(2010,2022);
 
             $catalog->publisher_id =  rand(1,20);
