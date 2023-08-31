@@ -27,7 +27,7 @@ class CatalogController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.Catalog.create');
     }
 
     /**
@@ -37,8 +37,20 @@ class CatalogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
+
     {
-        //
+        $this->validate($request,[
+            'Name'  => ['required'],
+        ]);
+
+        // $catalog = new Catalog;
+        // $catalog->Name = $request->Name;
+        // $catalog->save();
+
+            Catalog::create($request->all());
+
+            // return $request;
+        return redirect('catalogs');
     }
 
     /**
@@ -60,7 +72,8 @@ class CatalogController extends Controller
      */
     public function edit(Catalog $catalog)
     {
-        //
+        return view('admin.Catalog.edit', compact('catalog'));
+        
     }
 
     /**
@@ -72,7 +85,14 @@ class CatalogController extends Controller
      */
     public function update(Request $request, Catalog $catalog)
     {
-        //
+        $this->validate($request,[
+            'Name'  => ['required'],
+        ]);
+
+            $catalog->update($request->all());
+
+            // return $request;
+        return redirect('catalogs');
     }
 
     /**
@@ -83,6 +103,9 @@ class CatalogController extends Controller
      */
     public function destroy(Catalog $catalog)
     {
-        //
+        $catalog->delete();
+
+        return redirect('catalogs');
+
     }
 }

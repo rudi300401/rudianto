@@ -9,8 +9,10 @@ class Catalog extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['Name'];
+
     public function books ()
     {
-        return $this->hasMany('App\Models\Book', 'publisher_id');
+        return $this->hasMany('App\Models\Book', 'catalog_id');
     }
 }
