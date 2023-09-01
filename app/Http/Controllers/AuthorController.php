@@ -14,7 +14,12 @@ class AuthorController extends Controller
      */
     public function index()
     {
-        return view('admin.author.index');
+
+          $authors = author::with('books')->get();
+
+        // return $authors;
+        return view('admin.author.index', compact('authors'));
+       
     }
 
     /**

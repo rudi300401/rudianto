@@ -5,24 +5,18 @@
 
 
     <!-- Main content -->
-    <section class="content">
-        <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-6">
-            <div class="card">
-                <div class="card-header">
+   
                 <a href="{{ url ('catalogs/create') }}" class="btn btn-sm btn-primary pull-right">Create New Catalog</a>
-                </div>
                 <!-- /.card-header -->
                 <div class="card-body">
                 <table class="table table-bordered">
                     <thead>
                     <tr>
                         <th style="width: 10px">#</th>
-                        <th>Name</th>
-                        <th>Total buku</th>
-                        <th>created_at</th>
-                        <th>Action</th>
+                        <th class="text-center">Name</th>
+                        <th class="text-center">Total buku</th>
+                        <th class="text-center">created_at</th>
+                        <th class="text-center">Action</th>
                     </tr>
                     </thead>
                     <tbody>

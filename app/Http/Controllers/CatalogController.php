@@ -43,10 +43,6 @@ class CatalogController extends Controller
             'Name'  => ['required'],
         ]);
 
-        // $catalog = new Catalog;
-        // $catalog->Name = $request->Name;
-        // $catalog->save();
-
             Catalog::create($request->all());
 
             // return $request;

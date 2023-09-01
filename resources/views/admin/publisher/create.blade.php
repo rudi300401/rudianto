@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('header', 'catalog')
+@section('header', 'publisher')
 
 @section('content')
 <div class="row">
@@ -8,22 +8,26 @@
     <!-- general form elements -->
     <div class="card card-primary">
     <div class="card-header">
-        <h3 class="card-title">Create Catalog</h3>
+        <h3 class="card-title">Create publisher</h3>
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form action =" {{ url ('catalogs') }} " method="post">
+    <form action =" {{ url ('publishers') }} " method="post">
         @csrf
         <div class="card-body">
         <div class="form-group">
         <label> Name </label>
         <input type="text" Name="Name" class="form-control" placeholder="Enter Name" required="">
         </div>
+        <label> Email </label>
+        <input type="text" Email="Email" class="form-control" placeholder="Enter Email" required="">
+        </div>
+
 
         <div class="card-footer">
         <button type="submit" class="btn btn-primary">Submit</button>
         </div>
     </form>
     </div>  
-    {{--  <!-- /.card -->
+    <!-- /.card -->
 @endsection
