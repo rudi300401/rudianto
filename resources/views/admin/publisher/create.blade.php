@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+{{--  @extends('layouts.admin')
 @section('header', 'publisher')
 
 @section('content')
@@ -30,4 +30,4 @@
     </form>
     </div>  
     <!-- /.card -->
-@endsection
+@endsection  --}}

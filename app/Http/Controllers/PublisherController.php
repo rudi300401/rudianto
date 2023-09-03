@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class PublisherController extends Controller
 {
+    public function _construct()
+    {
+        $this->middleware('auth');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,7 @@ class PublisherController extends Controller
     public function index()
     {
         $publishers = Publisher::with('books')->get();
-        return view('admin.publisher.index', compact('publishers'));
+        return view('admin.publisher', compact('publishers'));
     }
 
     /**
@@ -25,7 +29,7 @@ class PublisherController extends Controller
      */
     public function create()
     {
-        return view('admin.publisher.create');
+        //
         
     }
 
@@ -39,13 +43,16 @@ class PublisherController extends Controller
     {
         
         $this->validate($request,[
-            'Name'  => ['required'],
+            'name'  => ['required'],
+            'email'  => ['required'],
+            'phone_number'  => ['required'],
+            'address'  => ['required'],
         ]);
 
         Publisher::create($request->all());
 
             // return $request;
-        return redirect('publishers');
+        return redirect('Publishers');
     }
 
     /**
@@ -67,8 +74,19 @@ class PublisherController extends Controller
      */
     public function edit(Publisher $publisher)
     {
-        return view('admin.Publisher.edit', compact('publisher'));
+        // return view('admin.Publisher.edit', compact('publisher'));
         
+        $this->validate($request,[
+            'name'  => ['required'],
+            'email'  => ['required'],
+            'phone_number'  => ['required'],
+            'address'  => ['required'],
+        ]);
+
+            $$publisher->update($request->all());
+
+            // return $request;
+        return redirect('publishers');
     }
 
     /**
@@ -91,6 +109,6 @@ class PublisherController extends Controller
      */
     public function destroy(Publisher $publisher)
     {
-        //
+        $publisher->delete();
     }
 }

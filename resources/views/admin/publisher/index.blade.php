@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+{{--  @extends('layouts.admin')
 @section('header', 'publisher')
 
 @section('content')
@@ -40,4 +40,4 @@
     </tbody>
 </table>
 </div>
-@endsection
+@endsection  --}}

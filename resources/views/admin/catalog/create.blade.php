@@ -25,5 +25,5 @@
         </div>
     </form>
     </div>  
-    {{--  <!-- /.card -->
+    <!-- /.card -->
 @endsection
