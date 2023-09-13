@@ -17,6 +17,13 @@ class PublisherController extends Controller
 
         return view('admin.publisher', compact('publishers'));
     }
+    public function api()
+    {
+       $publishers = publisher::all();
+       $datatables = datatables()->of($publishers)->addIndexColumn();
+
+       return $datatables->make(true);
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -72,19 +79,12 @@ class PublisherController extends Controller
      */
     public function update(Request $request, Publisher $publisher)
     {
-        $this->validate($request, [
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users',
-            'phone_number' => 'required|string|regex:/^08[0-9]{9}$/',
-            'address' => 'required|string',
-        ]);
 
         $publisher->name = $request->input('name');
         $publisher->email = $request->input('email');
         $publisher->phone_number = $request->input('phone_number');
         $publisher->address = $request->input('address');
         $publisher->save();
-
         return redirect('publishers');
 
     }

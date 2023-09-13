@@ -231,9 +231,7 @@ document.getElementById('logout-form').submit();">
                                         <!-- AdminLTE App -->
                                         <script src="{{ asset('asset/dist/js/adminlte.js') }}"></script>
                                         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.min.js"></script>
-                                        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
                                         @yield('js')
 
 </body>
-
 </html>
