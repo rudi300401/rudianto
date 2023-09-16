@@ -47,20 +47,32 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request,[
-            'isbn'  =>  ['required'],
-            'title'  =>  ['required'],
-            'year'  =>  ['required'],
-            'publisher'  =>  ['required'],
-            'author'  =>  ['required'],
-            'catalog'  =>  ['required'],
-            'qty'  =>  ['required'],
-            'price'  =>  ['required'],
+        $request->validate([
+            'isbn' => 'numeric',
+            'title' => 'required|string',
+            'year' => 'required|numeric',
+            'publisher_id' => 'required',
+            'author_id' => 'required',
+            'catalog_id' => 'required|numeric',
+            'qty' => 'numeric',
+            'price' => 'numeric',
         ]);
 
-        Author::create($request->all());
+        // Simpan data buku ke dalam database
+        $book = new Book([
+            'isbn' => $request->input('isbn'),
+            'title' => $request->input('title'),
+            'year' => $request->input('year'),
+            'publisher_id' => $request->input('publisher_id'),
+            'author_id' => $request->input('author_id'),
+            'catalog_id' => $request->input('catalog_id'),
+            'qty' => $request->input('qty'),
+            'price' => $request->input('price'),
+        ]);
 
-        return redirect('authors');
+        $book->save();
+
+        return redirect()->back()->with('success', 'Data buku berhasil disimpan.');
     }
 
     /**

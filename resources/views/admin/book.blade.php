@@ -25,6 +25,7 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <form method="post" :action="actionUrl" autocomplete="off">
+                        {{--  <form method="post" action="{{ route('books.store') }}" autocomplete="off">  --}}
                         <div class="modal-header">
                             <h4 class="modal-title">Book</h4>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
