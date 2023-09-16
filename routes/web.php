@@ -20,16 +20,17 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/books', [App\Http\Controllers\BookController::class, 'index']);
 Route::get('/members', [App\Http\Controllers\MemberController::class, 'index']);
 
 
 Route::resource('/catalogs', App\Http\Controllers\CatalogController::class);
 Route::resource('/authors', App\Http\Controllers\AuthorController::class);
 Route::resource('/publishers', App\Http\Controllers\PublisherController::class);
+Route::resource('/books', App\Http\Controllers\BookController::class);
 
 Route::get('api/authors', [App\Http\Controllers\AuthorController::class, 'api']);
 Route::get('api/publishers', [App\Http\Controllers\publisherController::class, 'api']);
+Route::get('api/books', [App\Http\Controllers\BookController::class, 'api']);
 
 
 
