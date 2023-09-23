@@ -12,9 +12,20 @@ class MemberController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.member.index');
+        // if ($request->sex) {
+        //     $datas = member::where('sex', $request->sex)->get();
+        // } else {
+        //     $datas = member::all();
+        // }
+        // $datatables = datatables()->of($datas)->addColumn();
+    
+        // return $datatables->make(true);
+        // return view('admin.member.index');
+        $members = Member::all();
+            // return $members;
+            return view('admin.member.index');
     }
 
     /**
@@ -35,7 +46,16 @@ class MemberController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'name'  =>  ['required'],
+            'email'  =>  ['required'],
+            'phone_number'  =>  ['required'],
+            'address'  =>  ['required'],
+        ]);
+
+        Member::create($request->all());
+
+        return back();
     }
 
     /**

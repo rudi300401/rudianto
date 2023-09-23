@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\TransactionController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -27,10 +29,17 @@ Route::resource('/catalogs', App\Http\Controllers\CatalogController::class);
 Route::resource('/authors', App\Http\Controllers\AuthorController::class);
 Route::resource('/publishers', App\Http\Controllers\PublisherController::class);
 Route::resource('/books', App\Http\Controllers\BookController::class);
+Route::resource('data/member', App\Http\Controllers\MemberController::class);
 
 Route::get('api/authors', [App\Http\Controllers\AuthorController::class, 'api']);
 Route::get('api/publishers', [App\Http\Controllers\publisherController::class, 'api']);
 Route::get('api/books', [App\Http\Controllers\BookController::class, 'api']);
+
+// Route::resource('transactions', App\Http\Controllers\TransactionController::class);
+// Route::get('api/transactions', [App\Http\Controllers\TransactionController::class]);
+
+Route::resource('transactions', TransactionController::class);
+Route::get('api/transactions', [TransactionController::class, 'api'])->name('api.transactions');
 
 
 

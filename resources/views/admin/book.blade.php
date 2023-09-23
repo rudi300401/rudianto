@@ -35,7 +35,7 @@
                         <div class="modal-body">
                             @csrf
 
-                            <input type="hidden" name="_method" value="PUT" v-if="editstatus">
+                            <input type="hidden" name="_method" value="GET" v-if="editstatus">
 
                             <div class="form-group">
                                 <label>ISBN</label>
@@ -144,12 +144,12 @@
                     });
                 },
                 addData() {
-                    this.book = {}; // Reset the book object when adding new data
+                    this.book = {}; 
                     this.editstatus = false;
                     $('#modal-default').modal();
                 },
                 editData(book) {
-                    this.book = Object.assign({}, book); // Use Object.assign to create a copy of the book
+                    this.book = Object.assign({}, book);
                     this.editstatus = true;
                     $('#modal-default').modal();
                 },
